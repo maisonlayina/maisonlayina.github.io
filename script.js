@@ -1,3 +1,10 @@
+document.querySelectorAll('img[src^="assets/"]').forEach(img => {
+  const name = img.getAttribute('src').split('/').pop();
+  if (window.LAYINA_IMAGES && window.LAYINA_IMAGES[name]) {
+    img.src = window.LAYINA_IMAGES[name];
+  }
+});
+
 const menuButton = document.querySelector('.menu-button');
 const nav = document.querySelector('.site-header nav');
 menuButton.addEventListener('click', () => nav.classList.toggle('open'));
