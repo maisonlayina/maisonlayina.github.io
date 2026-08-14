@@ -1,148 +1,39 @@
-(() => {
-  const style = document.createElement('style');
-  style.id = 'layina-inline-style';
-  style.textContent = `:root{
-  --cream:#f7f2e9;
-  --cream-2:#fcfaf6;
-  --white:#fff;
-  --ink:#2b251f;
-  --muted:#6f655a;
-  --gold:#b3833d;
-  --gold-soft:#d7b981;
-  --line:rgba(179,131,61,.28);
-  --shadow:0 18px 50px rgba(60,42,23,.10);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream-2);color:var(--ink);font-family:Montserrat,Arial,sans-serif;line-height:1.6}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-h1,h2,h3,.package-name{font-family:"Cormorant Garamond",Georgia,serif}
-.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:10px 5vw;background:rgba(247,242,233,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.header-logo img{width:225px;height:82px;object-fit:contain;object-position:center center;filter:drop-shadow(0 3px 8px rgba(179,131,61,.18))}
-.site-header nav{display:flex;align-items:center;gap:26px;font-size:.9rem}
-.site-header nav a:hover{color:var(--gold)}
-.nav-cta{border:1px solid var(--gold);border-radius:999px;padding:10px 17px}
-.menu-button{display:none;border:0;background:none;font-size:1.6rem}
-.hero{min-height:82vh;display:grid;grid-template-columns:1.05fr .95fr;gap:7vw;align-items:center;padding:68px 7vw 82px;background:
-radial-gradient(circle at 20% 15%,rgba(255,255,255,.95),transparent 35%),
-linear-gradient(135deg,#f8f3eb,#efe5d5)}
-.hero-copy{max-width:720px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.hero-brand{width:390px;max-height:250px;object-fit:contain;object-position:center center;margin:0 auto 10px 0;transform:translateX(-10px);filter:drop-shadow(0 5px 12px rgba(179,131,61,.20))}
-.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.73rem;color:var(--gold);font-weight:600;line-height:1.7}
-.founder-line{margin:0;padding:10px 16px;border-left:3px solid var(--gold);background:rgba(255,255,255,.55);font-size:1.08rem;line-height:1.6;color:var(--ink);font-weight:600;letter-spacing:.01em}
-h1{font-size:clamp(3.2rem,6.2vw,6.1rem);line-height:1.02;font-weight:500;margin:4px 0 8px}
-h1 em{color:var(--gold);font-style:normal;font-weight:500}
-.hero-lead{font-size:1.08rem;line-height:1.9;color:var(--muted);max-width:650px;margin:0}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
-.button{display:inline-block;padding:14px 23px;border-radius:999px;font-weight:600;font-size:.9rem}
-.primary{background:var(--gold);color:white}
-.secondary{border:1px solid var(--gold)}
-.hero-photo{position:relative;display:flex;justify-content:center;align-items:flex-start;width:100%;max-width:520px;margin:0 auto;padding:0}
-.hero-photo:before{content:"";position:absolute;inset:0;border:1px solid var(--gold-soft);border-radius:46% 46% 18px 18px;pointer-events:none}
-.hero-photo img{position:relative;z-index:1;width:100%;height:auto;display:block;object-fit:contain;border-radius:46% 46% 18px 18px;box-shadow:var(--shadow)}
-.section{padding:94px 6vw}
-.about{display:grid;grid-template-columns:.95fr 1.05fr;gap:8vw;align-items:start}
-h2{font-size:clamp(2.4rem,4.5vw,4.5rem);line-height:1.05;font-weight:500;margin:12px 0}
-.about-copy{font-size:1.04rem;color:var(--muted);line-height:1.9}.about-copy p{margin:0 0 18px}
-.about-copy strong{color:var(--ink)}
-.services{background:var(--cream)}
-.section-heading{max-width:850px;margin-bottom:42px}
-.section-heading>p:last-child{color:var(--muted);line-height:1.8}
-.services-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;align-items:start}
-.service-card{background:rgba(255,255,255,.84);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
-.service-card>img{width:100%;height:245px;object-fit:cover;background:#eee4d4}
-#colorimetrie>img{object-position:center 39%}
-#auto-maquillage>img{object-position:center 37%}
-#morphologie>img{object-position:center}
-.service-card__body{padding:21px}
-.service-number{font-family:"Cormorant Garamond",Georgia,serif;color:var(--gold);font-size:1.55rem}
-.service-card h3{font-size:1.55rem;line-height:1.05;margin:6px 0 10px}
-.service-meta{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:.86rem}
-.service-meta strong{color:var(--gold);font-size:1rem}
-.service-card p{font-size:.9rem;color:var(--muted)}
-.details-button{border:0;background:var(--gold);color:#fff;padding:10px 16px;font:600 .78rem Montserrat;border-radius:3px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
-.details-button:hover{filter:brightness(.94)}
-.service-details{margin-top:17px;padding-top:14px;border-top:1px solid var(--line)}
-.service-details ul{padding-left:18px;margin:0;color:var(--muted);font-size:.87rem}
-.service-details li{margin-bottom:7px}
-.service-note{padding:11px 12px;border-left:3px solid var(--gold);background:var(--cream-2);color:var(--ink)!important}
-.external-notice{max-width:1050px;margin:32px auto 0;padding:17px 20px;text-align:center;background:rgba(255,255,255,.65);border:1px solid var(--line);color:var(--muted)}
-.packages{background:var(--cream-2)}
-.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.package{position:relative;background:#fff;border:1px solid var(--line);padding:38px;box-shadow:var(--shadow)}
-.package.featured{border:2px solid var(--gold)}
-.badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;padding:5px 18px;border-radius:999px;font-size:.72rem;text-transform:uppercase;letter-spacing:.15em}
-.package-name{font-size:2rem;margin:0}
-.package h3{font-size:3rem;color:var(--gold);margin:4px 0 20px}
-.package ul{padding-left:20px;color:var(--muted)}
-.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;padding:96px 7vw;background:#fff}
-.contact-links{display:flex;flex-direction:column;justify-content:center;gap:18px}
-.contact-links a{font-size:1.12rem;border-bottom:1px solid var(--line);padding-bottom:13px;line-height:1.6}
-.contact-links a:hover{color:var(--gold)}
-footer{text-align:center;padding:54px 20px;background:#201b17;color:#d8cec4}
-footer img{width:270px;max-height:190px;object-fit:contain;object-position:center center;margin:0 auto 20px;filter:drop-shadow(0 3px 9px rgba(215,185,129,.20))}
-footer p{margin:4px 0;font-size:.85rem}
-@media(max-width:1200px){
-  .services-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@media(max-width:900px){
-  .menu-button{display:block}
-  .site-header nav{display:none;position:absolute;left:0;right:0;top:88px;background:var(--cream);padding:25px 6vw;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
-  .site-header nav.open{display:flex}
-  .hero,.about,.contact{grid-template-columns:1fr}
-  .hero-photo{max-width:460px}.hero-photo img{height:auto;max-width:100%}
-  .services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .packages-grid{grid-template-columns:1fr}
-}
-@media(max-width:600px){
-  .founder-line{font-size:1rem;line-height:1.7;padding:12px 14px}
-  .header-logo img{width:180px;height:66px}
-  .hero{padding:42px 20px 62px}
-  .hero-brand{width:300px;max-height:205px;transform:translateX(-6px)}
-  .hero-photo{max-width:100%;padding:0}.hero-photo:before{inset:0}.hero-photo img{height:auto;max-width:100%}
-  .section,.contact{padding:70px 20px}
-  .services-grid{grid-template-columns:1fr}
-  .service-card>img{height:260px}
-  .hero-actions{flex-direction:column}
-  .button{text-align:center}
-}
-`;
-  document.head.appendChild(style);
+(function(){
+  const fallbackScripts = [
+    'img-colorimetrie-originale.js',
+    'img-morphologie-silhouette.js',
+    'img-maintien-posture.js'
+  ];
 
-  const rawFallbacks = {
-    'logo-layina.png': 'https://raw.githubusercontent.com/melissafkh/Layina-maisondelatransformation/main/assets/logo-layina.png',
-    'accompagnement-prestataire.jpg': 'https://raw.githubusercontent.com/melissafkh/Layina-maisondelatransformation/main/assets/accompagnement-prestataire.jpg',
-    'home-reset.jpg': 'https://raw.githubusercontent.com/melissafkh/Layina-maisondelatransformation/main/assets/home-reset.jpg'
-  };
-
-  document.querySelectorAll('img').forEach(img => {
-    const raw = img.getAttribute('src') || '';
-    const name = raw.split('/').pop();
-    if (window.LAYINA_IMAGES && window.LAYINA_IMAGES[name]) {
-      img.src = window.LAYINA_IMAGES[name];
-    } else if (rawFallbacks[name]) {
-      img.src = rawFallbacks[name];
-    }
-  });
-
-  const menuButton = document.querySelector('.menu-button');
-  const nav = document.querySelector('.site-header nav');
-  if (menuButton && nav) {
-    menuButton.addEventListener('click', () => nav.classList.toggle('open'));
-  }
-  document.querySelectorAll('.site-header nav a').forEach(a => {
-    a.addEventListener('click', () => nav && nav.classList.remove('open'));
-  });
-  document.querySelectorAll('.details-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const details = button.nextElementSibling;
-      if (!details) return;
-      details.hidden = !details.hidden;
-      button.setAttribute('aria-expanded', String(!details.hidden));
-      button.textContent = details.hidden ? 'En savoir plus' : 'Réduire';
+  function applyImages(){
+    document.querySelectorAll('img[src^="assets/"]').forEach(img=>{
+      const name=(img.getAttribute('src')||'').split('/').pop();
+      if(window.LAYINA_IMAGES && window.LAYINA_IMAGES[name]) img.src=window.LAYINA_IMAGES[name];
     });
-  });
-  const year = document.getElementById('year');
-  if (year) year.textContent = new Date().getFullYear();
+  }
+
+  Promise.all(fallbackScripts.map(src=>new Promise((resolve,reject)=>{
+    const s=document.createElement('script');
+    s.src=src;
+    s.onload=resolve;
+    s.onerror=reject;
+    document.head.appendChild(s);
+  }))).then(applyImages).catch(applyImages);
+
+  document.querySelectorAll('img[src^="assets/"]').forEach(img=>img.addEventListener('error',applyImages));
+
+  const menuButton=document.querySelector('.menu-button');
+  const nav=document.querySelector('.site-header nav');
+  if(menuButton&&nav) menuButton.addEventListener('click',()=>nav.classList.toggle('open'));
+  document.querySelectorAll('.site-header nav a').forEach(a=>a.addEventListener('click',()=>nav&&nav.classList.remove('open')));
+
+  document.querySelectorAll('.details-button').forEach(button=>button.addEventListener('click',()=>{
+    const details=button.nextElementSibling;
+    details.hidden=!details.hidden;
+    button.setAttribute('aria-expanded',String(!details.hidden));
+    button.textContent=details.hidden?'En savoir plus':'Réduire';
+  }));
+
+  const year=document.getElementById('year');
+  if(year) year.textContent=new Date().getFullYear();
 })();
