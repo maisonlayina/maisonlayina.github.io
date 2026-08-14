@@ -1,0 +1,1 @@
+Version finale validée : Layina-maisondelatransformation — LAYINA, Maison de la transformation — Mélissa Frikh, Conseillère en image & fondatrice — Marseille et à distance.
