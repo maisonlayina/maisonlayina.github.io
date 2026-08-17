@@ -40,10 +40,7 @@
       document.querySelectorAll(selector).forEach(img=>{ img.src=I[key]; });
     };
 
-    // Photo d'accueil choisie par Mélissa : affichée telle quelle, sans filtre ni retouche.
     set('.hero-photo img','hero');
-
-    // Prestations : sélection visuelle finale.
     set('.services-list .service-row:nth-child(1) img','color');
     set('.services-list .service-row:nth-child(3) img','morpho');
     set('.services-list .service-row:nth-child(4) img','style');
@@ -65,6 +62,88 @@
     applyFallbackImages();
     applySelectedImages();
   }));
+
+  /* Nouvelle direction visuelle : suppression du thème 01/02/03/04 et rendu plus éditorial. */
+  const theme=document.createElement('style');
+  theme.textContent=`
+    .appointment-strip{
+      background:#f5efe6;
+      color:#2d2722;
+      padding:72px 7vw 78px;
+    }
+    .appointment-strip .eyebrow{
+      color:#a57c3c;
+      margin-bottom:34px;
+    }
+    .appointment-grid{
+      max-width:1180px;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:22px;
+      border:0;
+    }
+    .appointment-grid>div{
+      position:relative;
+      padding:34px 36px 32px;
+      background:#fffdfa;
+      border:1px solid rgba(165,124,60,.20);
+      border-radius:18px;
+      box-shadow:0 16px 38px rgba(52,39,24,.07);
+    }
+    .appointment-grid>div::before{
+      content:"";
+      display:block;
+      width:42px;
+      height:2px;
+      margin-bottom:20px;
+      background:#c3a062;
+    }
+    .appointment-grid span,
+    .method-grid span,
+    .service-number{
+      display:none!important;
+    }
+    .appointment-grid strong{
+      color:#2d2722;
+      font-size:1.75rem;
+      margin:0 0 7px;
+      font-weight:500;
+    }
+    .appointment-grid p{
+      color:#756b62;
+      font-size:.94rem;
+      line-height:1.8;
+    }
+    .method-grid{
+      max-width:1120px;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:20px;
+      border:0;
+    }
+    .method-grid>div{
+      padding:32px 34px;
+      border:1px solid rgba(165,124,60,.20)!important;
+      border-radius:16px;
+      background:#fbf8f3;
+    }
+    .method-grid h3{
+      color:#a57c3c;
+      font-size:1.9rem;
+      margin:0 0 8px;
+      font-weight:500;
+    }
+    .method-grid p{
+      font-size:.94rem;
+      line-height:1.8;
+    }
+    @media(max-width:700px){
+      .appointment-grid,.method-grid{grid-template-columns:1fr;}
+      .appointment-grid>div,.method-grid>div{padding:28px 25px;}
+      .appointment-strip{padding:58px 20px 64px;}
+    }
+  `;
+  document.head.appendChild(theme);
 
   const menuButton=document.querySelector('.menu-button');
   const nav=document.querySelector('.site-header nav');
