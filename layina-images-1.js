@@ -1,0 +1,1 @@
+window.LAYINA_V2=Object.assign(window.LAYINA_V2||{},{});
