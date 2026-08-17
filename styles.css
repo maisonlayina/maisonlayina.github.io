@@ -117,3 +117,65 @@ footer p{margin:4px 0;font-size:.84rem}
 @media(max-width:600px){
   .site-header{padding:8px 18px}.header-logo img{width:210px;height:70px}.hero{padding:52px 20px 64px}.hero-photo{max-width:235px}.founder-line{font-size:.93rem}h1{font-size:3.3rem}.section,.contact{padding:70px 20px}.appointment-strip{padding:54px 20px}.appointment-grid,.method-grid{grid-template-columns:1fr}.editorial-grid{grid-template-columns:1fr}.service-row__content{padding:26px 24px}.hero-actions{flex-direction:column;width:100%}.button{text-align:center;width:100%}
 }
+
+/* Demande finale : aucun logo image, aucune photo d'accueil. */
+.header-logo{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  background:transparent!important;
+  padding:4px 0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  line-height:1!important;
+}
+.header-logo img{display:none!important}
+.header-logo::before{
+  content:"LAYINA";
+  display:block;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:2.15rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  color:var(--gold);
+}
+.header-logo::after{
+  content:"Maison de la transformation";
+  display:block;
+  margin-top:6px;
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:.68rem;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.hero{grid-template-columns:1fr!important}
+.hero-copy{max-width:900px!important}
+.hero-photo{display:none!important}
+footer img{display:none!important}
+footer::before{
+  content:"LAYINA";
+  display:block;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:2.3rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  color:var(--gold);
+}
+footer::after{
+  content:"Maison de la transformation";
+  display:block;
+  margin-top:4px;
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+@media(max-width:600px){
+  .header-logo::before{font-size:1.75rem}
+  .header-logo::after{font-size:.58rem;letter-spacing:.09em}
+}
