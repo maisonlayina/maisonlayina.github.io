@@ -150,3 +150,11 @@ footer p{margin:4px 0;font-size:.84rem}
   .hero-photo{max-width:250px}
   .hero-actions{flex-direction:column;width:100%}.button{text-align:center;width:100%}
 }
+
+/* Version sans photos : le logo de marque reste visible */
+.hero{grid-template-columns:1fr;min-height:auto;text-align:left}
+.hero-copy{max-width:900px;margin:0 auto}
+.hero-photo{display:none!important}
+.service-row,.service-row.reverse{display:block;min-height:0;max-width:900px;margin:0 auto;width:100%}
+.service-row img,.service-visual{display:none!important}
+.service-row__content{padding:34px 42px}
