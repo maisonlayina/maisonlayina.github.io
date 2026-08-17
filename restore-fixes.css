@@ -1,0 +1,12 @@
+/* Ajustements demandés par Mélissa : garder uniquement sa photo d'accueil et rendre le logo plus visible. */
+.header-logo img{width:245px;height:88px;object-fit:contain}
+.hero{grid-template-columns:1.08fr .92fr!important;min-height:76vh!important}
+.hero-copy{max-width:760px!important;margin:0!important}
+.hero-photo{display:block!important;max-width:330px!important;margin:0 auto!important}
+.hero-photo img{display:block!important;width:100%!important;height:auto!important}
+.hero:before{opacity:.16!important}
+.service-row img,.service-visual{display:none!important}
+.service-row,.service-row.reverse{display:block!important;min-height:0!important;max-width:900px!important;margin:0 auto!important;width:100%!important}
+.service-row__content{padding:34px 42px!important}
+@media(max-width:900px){.hero{grid-template-columns:1fr!important}.hero-photo{max-width:290px!important}.header-logo img{width:220px;height:82px}}
+@media(max-width:600px){.header-logo img{width:185px;height:72px}.hero-photo{max-width:245px!important}}
