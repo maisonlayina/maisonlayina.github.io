@@ -5,22 +5,66 @@
     'img-maintien-posture.js'
   ];
 
-  function applyImages(){
+  const selectedImageScripts = [
+    'v2-hero.js',
+    'v2-color.js',
+    'v2-style.js',
+    'v2-morpho.js',
+    'v2-achats.js',
+    'v2-prestataire.js',
+    'v2-homme.js',
+    'v2-home.js'
+  ];
+
+  function loadScripts(list){
+    return Promise.all(list.map(src=>new Promise((resolve,reject)=>{
+      const s=document.createElement('script');
+      s.src=src;
+      s.onload=resolve;
+      s.onerror=reject;
+      document.head.appendChild(s);
+    })));
+  }
+
+  function applyFallbackImages(){
     document.querySelectorAll('img[src^="assets/"]').forEach(img=>{
       const name=(img.getAttribute('src')||'').split('/').pop();
       if(window.LAYINA_IMAGES && window.LAYINA_IMAGES[name]) img.src=window.LAYINA_IMAGES[name];
     });
   }
 
-  Promise.all(fallbackScripts.map(src=>new Promise((resolve,reject)=>{
-    const s=document.createElement('script');
-    s.src=src;
-    s.onload=resolve;
-    s.onerror=reject;
-    document.head.appendChild(s);
-  }))).then(applyImages).catch(applyImages);
+  function applySelectedImages(){
+    const I=window.LAYINA_V2||{};
+    const set=(selector,key)=>{
+      if(!I[key]) return;
+      document.querySelectorAll(selector).forEach(img=>{ img.src=I[key]; });
+    };
 
-  document.querySelectorAll('img[src^="assets/"]').forEach(img=>img.addEventListener('error',applyImages));
+    // Photo d'accueil choisie par Mélissa : affichée telle quelle, sans filtre ni retouche.
+    set('.hero-photo img','hero');
+
+    // Prestations : sélection visuelle finale.
+    set('.services-list .service-row:nth-child(1) img','color');
+    set('.services-list .service-row:nth-child(3) img','morpho');
+    set('.services-list .service-row:nth-child(4) img','style');
+    set('.services-list .service-row:nth-child(6) img','achats');
+    set('.services-list .service-row:nth-child(7) img','prestataire');
+    set('.services-list .service-row:nth-child(8) img','homme');
+    set('.services-list .service-row:nth-child(11) img','home');
+  }
+
+  Promise.allSettled([
+    loadScripts(fallbackScripts),
+    loadScripts(selectedImageScripts)
+  ]).then(()=>{
+    applyFallbackImages();
+    applySelectedImages();
+  });
+
+  document.querySelectorAll('img[src^="assets/"]').forEach(img=>img.addEventListener('error',()=>{
+    applyFallbackImages();
+    applySelectedImages();
+  }));
 
   const menuButton=document.querySelector('.menu-button');
   const nav=document.querySelector('.site-header nav');
