@@ -1,12 +1,22 @@
-/* Ajustements demandés par Mélissa : garder uniquement sa photo d'accueil et rendre le logo plus visible. */
-.header-logo img{width:245px;height:88px;object-fit:contain}
+/* Ajustements demandés : photo d'accueil directe, logo visible, prestations en cartes 3 colonnes sans images. */
+.header-logo{display:flex;align-items:center;padding:6px 10px;background:#fffaf2;border:1px solid rgba(165,124,60,.22);border-radius:14px}
+.header-logo img{width:285px;height:96px;object-fit:contain;object-position:left center;filter:none!important}
+.site-header{padding:10px 5vw;background:rgba(251,248,243,.98)}
 .hero{grid-template-columns:1.08fr .92fr!important;min-height:76vh!important}
 .hero-copy{max-width:760px!important;margin:0!important}
-.hero-photo{display:block!important;max-width:330px!important;margin:0 auto!important}
-.hero-photo img{display:block!important;width:100%!important;height:auto!important}
+.hero-photo{display:block!important;max-width:320px!important;margin:0 auto!important}
+.hero-photo img{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important;image-rendering:auto!important}
 .hero:before{opacity:.16!important}
+.services-list{max-width:1180px!important;margin:0 auto!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important;align-items:stretch!important}
+.service-row,.service-row.reverse{display:block!important;min-height:0!important;max-width:none!important;margin:0!important;width:100%!important;background:#fff!important;border:1px solid rgba(165,124,60,.22)!important;border-radius:18px!important;box-shadow:0 16px 38px rgba(52,39,24,.08)!important;overflow:hidden!important}
 .service-row img,.service-visual{display:none!important}
-.service-row,.service-row.reverse{display:block!important;min-height:0!important;max-width:900px!important;margin:0 auto!important;width:100%!important}
-.service-row__content{padding:34px 42px!important}
-@media(max-width:900px){.hero{grid-template-columns:1fr!important}.hero-photo{max-width:290px!important}.header-logo img{width:220px;height:82px}}
-@media(max-width:600px){.header-logo img{width:185px;height:72px}.hero-photo{max-width:245px!important}}
+.service-row__content{padding:30px 28px 28px!important;min-height:100%!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+.service-number{display:block!important;font-family:"Cormorant Garamond",Georgia,serif!important;color:var(--gold-deep)!important;font-size:1.45rem!important;margin-bottom:8px!important}
+.service-row h3{font-size:2rem!important;line-height:1.08!important;margin:0 0 14px!important;font-weight:500!important}
+.service-row p{margin:0 0 18px!important;color:var(--muted)!important;line-height:1.7!important}
+.service-meta{margin-top:auto!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;padding-top:14px!important;border-top:1px solid var(--line)!important;font-size:.92rem!important}
+.service-meta strong{font-size:1.15rem!important;color:var(--gold-deep)!important}
+.service-row small{display:block!important;margin-top:12px!important;color:var(--muted)!important}
+@media(max-width:1000px){.services-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:900px){.hero{grid-template-columns:1fr!important}.hero-photo{max-width:285px!important}.header-logo img{width:230px;height:82px}}
+@media(max-width:650px){.services-list{grid-template-columns:1fr!important;gap:18px!important}.header-logo img{width:190px;height:72px}.hero-photo{max-width:245px!important}.service-row__content{padding:26px 22px!important}}
