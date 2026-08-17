@@ -1,4 +1,9 @@
 (function(){
+  const fix=document.createElement('link');
+  fix.rel='stylesheet';
+  fix.href='restore-fixes.css';
+  document.head.appendChild(fix);
+
   const fallbackScripts = [
     'img-colorimetrie-originale.js',
     'img-morphologie-silhouette.js',
@@ -63,7 +68,6 @@
     applySelectedImages();
   }));
 
-  /* Nouvelle direction visuelle : suppression du thème 01/02/03/04 et rendu plus éditorial. */
   const theme=document.createElement('style');
   theme.textContent=`
     .appointment-strip{
@@ -149,13 +153,6 @@
   const nav=document.querySelector('.site-header nav');
   if(menuButton&&nav) menuButton.addEventListener('click',()=>nav.classList.toggle('open'));
   document.querySelectorAll('.site-header nav a').forEach(a=>a.addEventListener('click',()=>nav&&nav.classList.remove('open')));
-
-  document.querySelectorAll('.details-button').forEach(button=>button.addEventListener('click',()=>{
-    const details=button.nextElementSibling;
-    details.hidden=!details.hidden;
-    button.setAttribute('aria-expanded',String(!details.hidden));
-    button.textContent=details.hidden?'En savoir plus':'Réduire';
-  }));
 
   const year=document.getElementById('year');
   if(year) year.textContent=new Date().getFullYear();
