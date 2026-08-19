@@ -18,12 +18,12 @@ function addServiceImages(){
   const map=[
     ['Colorimétrie','assets/colorimetrie.jpg'],
     ['Morphologie visage','assets/morphologie-visage.jpg'],
-    ['Morphologie silhouette','assets/morphologie-silhouette.jpg'],
+    ['Morphologie silhouette','assets/morphologie-silhouette.jpeg'],
     ['Style & personnalité','assets/style-personnalite.jpg'],
-    ['Tri de dressing','assets/tri-dressing.jpg'],
-    ['Accompagnement achats','assets/accompagnement-achats.jpg'],
-    ['Accompagnement prestataire','assets/accompagnement-prestataire.jpg'],
-    ['Maintien & posture','assets/maintien-posture.jpg'],
+    ['Tri de dressing','assets/tri-dressing.jpeg'],
+    ['Accompagnement achats','assets/accompagnement-achats.jpeg'],
+    ['Accompagnement prestataire','assets/accompagnement-prestataire.jpeg'],
+    ['Maintien & posture','assets/maintien-posture.jpeg'],
     ["Cours d'auto-maquillage",'assets/auto-maquillage.jpg'],
     ['Cours de pose de voile','assets/pose-voile.jpg'],
     ['Home Reset','assets/home-reset.jpg']
