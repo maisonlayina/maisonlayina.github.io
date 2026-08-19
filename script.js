@@ -28,7 +28,7 @@ function addServiceImages(){
     ['Accompagnement prestataire',v.prestataire||'assets/accompagnement-prestataire.jpg'],
     ['Maintien & posture',li['maintien-posture.jpg']],
     ["Cours d'auto-maquillage",'assets/auto-maquillage-originale-floutee.jpg'],
-    ['Cours de pose de voile','assets/pose-voile.jpg'],
+    ['Cours de pose de voile','assets/style-personnalite.jpg'],
     ['Home Reset',v.home||'assets/home-reset.jpg']
   ];
   document.querySelectorAll('.accordion-list details').forEach((d)=>{
