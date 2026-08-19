@@ -26,9 +26,9 @@ function addServiceImages(){
     ['Tri de dressing','assets/tri-dressing.jpg'],
     ['Accompagnement achats',v.achats||'assets/accompagnement-achats.jpg'],
     ['Accompagnement prestataire',v.prestataire||'assets/accompagnement-prestataire.jpg'],
-    ['Maintien & posture',v.homme],
+    ['Maintien & posture',li['maintien-posture.jpg']],
     ["Cours d'auto-maquillage",'assets/auto-maquillage-originale-floutee.jpg'],
-    ['Cours de pose de voile','assets/style-personnalite.jpg'],
+    ['Cours de pose de voile','assets/pose-voile.jpg'],
     ['Home Reset',v.home||'assets/home-reset.jpg']
   ];
   document.querySelectorAll('.accordion-list details').forEach((d)=>{
@@ -54,7 +54,7 @@ if(location.pathname.includes('prestations')){
     loadScript('v2-style.js'),
     loadScript('v2-achats.js'),
     loadScript('v2-prestataire.js'),
-    loadScript('v2-homme.js'),
+    loadScript('img-maintien-posture.js'),
     loadScript('v2-home.js')
   ]).then(addServiceImages);
 }
