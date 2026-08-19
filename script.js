@@ -14,29 +14,26 @@ if(b&&n){b.addEventListener('click',()=>n.classList.toggle('open'));n.querySelec
 
 document.querySelectorAll('.accordion-list details').forEach(d=>{d.addEventListener('toggle',()=>{if(d.open){document.querySelectorAll('.accordion-list details[open]').forEach(o=>{if(o!==d)o.removeAttribute('open')})}})});
 
-function loadScript(src){return new Promise((resolve)=>{if(document.querySelector('script[data-layina-src="'+src+'"]')){resolve();return}const s=document.createElement('script');s.src=src;s.dataset.layinaSrc=src;s.onload=resolve;s.onerror=resolve;document.head.appendChild(s)})}
 function addServiceImages(){
-  const v=window.LAYINA_V2||{};
-  const li=window.LAYINA_IMAGES||{};
   const map=[
-    ['Colorimétrie',v.color],
-    ['Morphologie visage',v.morpho],
-    ['Morphologie silhouette',li['morphologie-silhouette.jpg']],
-    ['Style & personnalité',v.style],
+    ['Colorimétrie','assets/colorimetrie.jpg'],
+    ['Morphologie visage','assets/morphologie-visage.jpg'],
+    ['Morphologie silhouette','assets/morphologie-silhouette.jpg'],
+    ['Style & personnalité','assets/style-personnalite.jpg'],
     ['Tri de dressing','assets/tri-dressing.jpg'],
-    ['Accompagnement achats',v.achats||'assets/accompagnement-achats.jpg'],
-    ['Accompagnement prestataire',v.prestataire||'assets/accompagnement-prestataire.jpg'],
-    ['Maintien & posture',li['maintien-posture.jpg']],
-    ["Cours d'auto-maquillage",'assets/auto-maquillage-originale-floutee.jpg'],
-    ['Cours de pose de voile','assets/style-personnalite.jpg'],
-    ['Home Reset',v.home||'assets/home-reset.jpg']
+    ['Accompagnement achats','assets/accompagnement-achats.jpg'],
+    ['Accompagnement prestataire','assets/accompagnement-prestataire.jpg'],
+    ['Maintien & posture','assets/maintien-posture.jpg'],
+    ["Cours d'auto-maquillage",'assets/auto-maquillage.jpg'],
+    ['Cours de pose de voile','assets/pose-voile.jpg'],
+    ['Home Reset','assets/home-reset.jpg']
   ];
   document.querySelectorAll('.accordion-list details').forEach((d)=>{
     const summary=d.querySelector('summary');
     const title=summary&&summary.querySelector('strong');
     if(!summary||!title||summary.querySelector('.service-image'))return;
     const found=map.find(([name])=>title.textContent.trim().startsWith(name));
-    if(!found||!found[1])return;
+    if(!found)return;
     const img=document.createElement('img');
     img.className='service-image';
     img.src=found[1];
@@ -46,17 +43,7 @@ function addServiceImages(){
     summary.prepend(img);
   });
 }
-if(location.pathname.includes('prestations')){
-  Promise.all([
-    loadScript('v2-color.js'),
-    loadScript('v2-morpho.js'),
-    loadScript('img-morphologie-silhouette.js'),
-    loadScript('v2-style.js'),
-    loadScript('v2-achats.js'),
-    loadScript('v2-prestataire.js'),
-    loadScript('img-maintien-posture.js'),
-    loadScript('v2-home.js')
-  ]).then(addServiceImages);
-}
+if(location.pathname.includes('prestations'))addServiceImages();
+
 const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 })();
