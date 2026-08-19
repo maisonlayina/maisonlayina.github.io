@@ -1,4 +1,20 @@
 (function(){
+/* Uniformise le logo du haut et du bas sur toutes les pages */
+const wordmark=document.querySelector('.site-header .wordmark');
+if(wordmark&&!wordmark.querySelector('.header-logo')){
+  wordmark.classList.add('logo-link');
+  wordmark.setAttribute('aria-label','LAYINA — Accueil');
+  wordmark.innerHTML='<img class="header-logo" src="assets/logo-layina.png" alt="LAYINA — Maison de la transformation">';
+}
+const footer=document.querySelector('footer');
+if(footer&&!footer.querySelector('.footer-logo')){
+  const oldBrand=footer.querySelector('.footer-brand');
+  const logoWrap=document.createElement('div');
+  logoWrap.className='footer-logo-wrap';
+  logoWrap.innerHTML='<img class="footer-logo" src="assets/logo-layina.png" alt="LAYINA — Maison de la transformation">';
+  if(oldBrand)oldBrand.replaceWith(logoWrap);else footer.prepend(logoWrap);
+}
+
 const n=document.querySelector('.site-header nav');
 if(n){
   const cta=n.querySelector('.nav-cta');
