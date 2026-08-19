@@ -28,6 +28,24 @@ if(contactBlock&&location.pathname.includes('prestations')){
 const b=document.querySelector('.menu-button');
 if(b&&n){b.addEventListener('click',()=>n.classList.toggle('open'));n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>n.classList.remove('open')))}
 
+/* Une seule photo d'accueil : à droite sur ordinateur, sous le nom sur téléphone */
+const hero=document.querySelector('.hero');
+const heroCopy=hero&&hero.querySelector('.hero-copy');
+const heroPhotoWrap=hero&&hero.querySelector('.hero-photo-wrap');
+const founderLine=heroCopy&&heroCopy.querySelector('.founder-line');
+function placeHeroPhoto(){
+  if(!hero||!heroCopy||!heroPhotoWrap||!founderLine)return;
+  if(window.matchMedia('(max-width:600px)').matches){
+    if(heroPhotoWrap.parentElement!==heroCopy||heroPhotoWrap.previousElementSibling!==founderLine){
+      founderLine.insertAdjacentElement('afterend',heroPhotoWrap);
+    }
+  }else if(heroPhotoWrap.parentElement!==hero){
+    hero.appendChild(heroPhotoWrap);
+  }
+}
+placeHeroPhoto();
+window.addEventListener('resize',placeHeroPhoto);
+
 document.querySelectorAll('.accordion-list details').forEach(d=>{d.addEventListener('toggle',()=>{if(d.open){document.querySelectorAll('.accordion-list details[open]').forEach(o=>{if(o!==d)o.removeAttribute('open')})}})});
 
 function addServiceImages(){
