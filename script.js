@@ -79,5 +79,24 @@ function addServiceImages(){
 }
 if(location.pathname.includes('prestations'))addServiceImages();
 
+/* Couverture photo uniquement sur la page Spécial Marié(e) */
+if(location.pathname.includes('mariage')){
+  const mariageHero=document.querySelector('.page-hero');
+  if(mariageHero){
+    mariageHero.classList.add('mariage-hero-live');
+    const style=document.createElement('style');
+    style.textContent=`
+      .mariage-hero-live{position:relative!important;isolation:isolate!important;min-height:620px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;padding:80px 8vw!important;background-image:linear-gradient(90deg,rgba(25,20,17,.66) 0%,rgba(25,20,17,.43) 42%,rgba(25,20,17,.08) 72%),url('assets/mariage-plage.jpeg')!important;background-size:cover!important;background-position:center 52%!important;color:#fff!important;text-align:left!important;overflow:hidden!important}
+      .mariage-hero-live:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.18))}
+      .mariage-hero-live .eyebrow{color:#d8b36d!important;letter-spacing:.24em!important;text-transform:uppercase!important;margin-bottom:18px!important}
+      .mariage-hero-live h1{max-width:760px!important;color:#fff!important;font-size:clamp(3.4rem,7vw,6.7rem)!important;line-height:.92!important;margin:0 0 24px!important;text-shadow:0 3px 22px rgba(0,0,0,.2)!important}
+      .mariage-hero-live h1 em{color:#fff!important;font-style:normal!important}
+      .mariage-hero-live>p:last-child{max-width:660px!important;color:#fff!important;font-family:'Cormorant Garamond',Georgia,serif!important;font-size:clamp(1.25rem,2vw,1.65rem)!important;line-height:1.45!important;letter-spacing:.02em!important;text-shadow:0 2px 14px rgba(0,0,0,.35)!important}
+      @media(max-width:700px){.mariage-hero-live{min-height:520px!important;padding:58px 24px!important;background-position:58% center!important;background-image:linear-gradient(90deg,rgba(25,20,17,.66),rgba(25,20,17,.22)),url('assets/mariage-plage.jpeg')!important}.mariage-hero-live h1{font-size:clamp(2.9rem,14vw,4.5rem)!important;max-width:90%!important}.mariage-hero-live>p:last-child{font-size:1.2rem!important;max-width:88%!important}}
+    `;
+    document.head.appendChild(style);
+  }
+}
+
 const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 })();
