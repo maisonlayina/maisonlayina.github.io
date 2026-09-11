@@ -77,7 +77,22 @@ function addServiceImages(){
     summary.prepend(img);
   });
 }
-if(location.pathname.includes('prestations'))addServiceImages();
+if(location.pathname.includes('prestations')){
+  addServiceImages();
+  document.querySelectorAll('.package').forEach(pkg=>{
+    const name=pkg.querySelector('.package-name');
+    if(!name||!['Renaissance','Transformation complète'].includes(name.textContent.trim()))return;
+    const firstList=pkg.querySelector('ul');
+    if(!firstList)return;
+    const texts=[...firstList.querySelectorAll('li')].map(li=>li.textContent.trim());
+    if(!texts.includes('Accompagnement coiffeur')){
+      const li=document.createElement('li');li.textContent='Accompagnement coiffeur';firstList.appendChild(li);
+    }
+    if(!texts.includes('Pause déjeuner')){
+      const li=document.createElement('li');li.textContent='Pause déjeuner';firstList.appendChild(li);
+    }
+  });
+}
 
 /* Couverture photo uniquement sur la page Spécial Marié(e) */
 if(location.pathname.includes('mariage')){
