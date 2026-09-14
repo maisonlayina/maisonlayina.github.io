@@ -212,6 +212,27 @@ if(document.querySelector('.wedding-hero')){
   document.head.appendChild(weddingMobileStyle);
 }
 
+/* Tarifs Spécial Mariée */
+if(location.pathname.includes('mariage')){
+  document.querySelectorAll('#mariee .wedding-card').forEach(card=>{
+    const title=card.querySelector('.wedding-card-text strong');
+    const price=card.querySelector('.wedding-card-text small');
+    if(title&&price&&title.textContent.trim()==='Colorimétrie spéciale mariée')price.textContent='129 €';
+  });
+  const bridePackagePrices={
+    'Essentiel Mariée':'350 €',
+    'Élégance Mariée':'750 €',
+    'Expérience Mariée':'1 290 €'
+  };
+  document.querySelectorAll('.wedding-package').forEach(pkg=>{
+    const title=pkg.querySelector('h3');
+    const price=pkg.querySelector('.wedding-price');
+    if(!title||!price)return;
+    const newPrice=bridePackagePrices[title.textContent.trim()];
+    if(newPrice)price.textContent=newPrice;
+  });
+}
+
 const y=document.getElementById('year');
 if(y)y.textContent=new Date().getFullYear();
 })();
