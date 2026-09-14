@@ -205,6 +205,13 @@ if(location.pathname.includes('mariage')){
   }
 }
 
+/* Photo d'arrière-plan mariage : visible en entier sur téléphone */
+if(document.querySelector('.wedding-hero')){
+  const weddingMobileStyle=document.createElement('style');
+  weddingMobileStyle.textContent=`@media(max-width:700px){.wedding-hero{background-image:linear-gradient(180deg,rgba(30,21,16,.42),rgba(30,21,16,.56)),url('assets/mariage-plage.jpeg?v=20260914-full-mobile')!important;background-size:100% 100%,contain!important;background-repeat:no-repeat,no-repeat!important;background-position:center,center top!important;background-color:#2f261f!important}}`;
+  document.head.appendChild(weddingMobileStyle);
+}
+
 const y=document.getElementById('year');
 if(y)y.textContent=new Date().getFullYear();
 })();
