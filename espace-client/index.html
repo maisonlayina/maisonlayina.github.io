@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#f7f2eb">
+  <meta name="description" content="Espace personnel LAYINA — accompagnement conseil en image.">
+  <title>LAYINA — Mon espace personnel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loginView" class="login-shell">
+    <main class="login-card" aria-labelledby="loginTitle">
+      <img class="login-logo" src="../assets/logo-layina.png" alt="LAYINA — Maison de la transformation">
+      <p class="eyebrow">ESPACE PRIVÉ</p>
+      <h1 id="loginTitle">Mon accompagnement LAYINA</h1>
+      <p class="login-intro">Retrouve tes rendez-vous, tes recommandations et ton livret personnalisé dans un seul espace.</p>
+      <form id="loginForm" class="login-form">
+        <label>Adresse e-mail
+          <input id="emailInput" type="email" autocomplete="email" placeholder="prenom@email.fr" required>
+        </label>
+        <label>Mot de passe
+          <input id="passwordInput" type="password" autocomplete="current-password" placeholder="••••••••" required>
+        </label>
+        <button class="primary-button" type="submit">Accéder à mon espace</button>
+      </form>
+      <p class="demo-note">Version de démonstration LAYINA — aucun dossier client réel n’est stocké ici.</p>
+    </main>
+  </div>
+
+  <div id="appView" class="app-shell is-hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-block">
+        <img src="../assets/logo-layina.png" alt="LAYINA">
+        <p>Mon espace personnel</p>
+      </div>
+      <nav class="side-nav" aria-label="Navigation espace client">
+        <button class="nav-item active" data-view="dashboard">Accueil</button>
+        <button class="nav-item" data-view="profile">Mon profil</button>
+        <button class="nav-item" data-view="colorimetry">Ma colorimétrie</button>
+        <button class="nav-item" data-view="face">Mon visage</button>
+        <button class="nav-item" data-view="silhouette">Ma silhouette</button>
+        <button class="nav-item" data-view="style">Mon style</button>
+        <button class="nav-item" data-view="shopping">Ma liste shopping</button>
+        <button class="nav-item" data-view="booklet">Mon livret LAYINA</button>
+        <button class="nav-item" data-view="wedding">Mon espace mariage</button>
+      </nav>
+      <button id="logoutButton" class="logout-button">Se déconnecter</button>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <button id="menuButton" class="menu-button" aria-label="Ouvrir le menu">☰</button>
+        <div>
+          <p class="topbar-kicker">LAYINA</p>
+          <strong id="topbarTitle">Mon espace personnel</strong>
+        </div>
+        <div class="avatar" aria-label="Profil client">CL</div>
+      </header>
+
+      <main class="content">
+        <section class="app-view" data-view-panel="dashboard">
+          <div class="welcome-card">
+            <div>
+              <p class="eyebrow">BONJOUR</p>
+              <h1>Bienvenue dans ton univers LAYINA.</h1>
+              <p>Ton accompagnement, tes couleurs, tes lignes et tes recommandations sont réunis ici.</p>
+            </div>
+            <span class="progress-ring" aria-label="Progression 65 %">65%</span>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="card appointment-card">
+              <p class="card-kicker">PROCHAIN RENDEZ-VOUS</p>
+              <h2>Analyse style & personnalité</h2>
+              <p>Samedi 19 septembre · 14 h 00</p>
+              <a class="text-link" href="https://calendly.com/layina_maison" target="_blank" rel="noopener">Voir mes rendez-vous</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">MON PARCOURS</p>
+              <div class="timeline-mini">
+                <span class="done">Colorimétrie</span>
+                <span class="done">Visage & visagisme</span>
+                <span class="current">Style & personnalité</span>
+                <span>Silhouette</span>
+              </div>
+            </article>
+          </div>
+
+          <h2 class="section-title">Mes essentiels</h2>
+          <div class="module-grid">
+            <button class="module-card" data-jump="colorimetry"><span>01</span><strong>Ma colorimétrie</strong><small>Palette, métaux, cheveux</small></button>
+            <button class="module-card" data-jump="face"><span>02</span><strong>Mon visage</strong><small>Coiffure, lunettes, bijoux</small></button>
+            <button class="module-card" data-jump="silhouette"><span>03</span><strong>Ma silhouette</strong><small>Coupes, volumes, longueurs</small></button>
+            <button class="module-card" data-jump="style"><span>04</span><strong>Mon style</strong><small>Profil et inspirations</small></button>
+            <button class="module-card" data-jump="shopping"><span>05</span><strong>Ma liste shopping</strong><small>Priorités et achats</small></button>
+            <button class="module-card" data-jump="booklet"><span>06</span><strong>Mon livret</strong><small>Toutes mes recommandations</small></button>
+          </div>
+        </section>
+
+        <section class="app-view is-hidden" data-view-panel="profile">
+          <p class="eyebrow">MON DOSSIER</p><h1>Mon profil</h1>
+          <div class="info-grid">
+            <article class="card"><span>Objectif principal</span><strong>Construire une image élégante et cohérente au quotidien.</strong></article>
+            <article class="card"><span>Accompagnement</span><strong>Transformation complète</strong></article>
+            <article class="card"><span>Préférences</span><strong>Chic moderne · féminin · confortable</strong></article>
+            <article class="card"><span>Budget shopping</span><strong>À définir avec Mélissa</strong></article>
+          </div>
+        </section>
+
+        <section class="app-view is-hidden" data-view-panel="colorimetry">
+          <p class="eyebrow">HARMONIE PERSONNELLE</p><h1>Ma colorimétrie</h1>
+          <div class="feature-layout">
+            <article class="card season-card"><span class="card-kicker">MON RÉSULTAT</span><h2>Printemps chaud</h2><p>Des couleurs lumineuses, chaudes et légèrement dorées mettent naturellement ton teint en valeur.</p></article>
+            <article class="card"><h2>Ma palette</h2><div class="swatches"><span style="--sw:#d69a4c"></span><span style="--sw:#e6b56b"></span><span style="--sw:#df7156"></span><span style="--sw:#c96250"></span><span style="--sw:#75a97e"></span><span style="--sw:#62a6a6"></span></div><p class="muted">Exemple de palette de démonstration. Mélissa pourra personnaliser chaque couleur.</p></article>
+          </div>
+          <div class="info-grid">
+            <article class="card"><span>Métaux</span><strong>Doré chaud, champagne</strong></article>
+            <article class="card"><span>Neutres</span><strong>Ivoire, camel clair, chocolat chaud</strong></article>
+            <article class="card"><span>Cheveux</span><strong>Reflets chauds, miel, caramel</strong></article>
+            <article class="card"><span>À éviter près du visage</span><strong>Gris froids et tons trop cendrés</strong></article>
+          </div>
+        </section>
+
+        <section class="app-view is-hidden" data-view-panel="face">
+          <p class="eyebrow">VISAGISME</p><h1>Mon visage</h1>
+          <div class="info-grid">
+            <article class="card"><span>Morphologie</span><strong>Ovale</strong><p>Morphologie équilibrée qui accepte de nombreux volumes.</p></article>
+            <article class="card"><span>Coiffures</span><strong>Volumes doux et mouvement autour du visage</strong></article>
+            <article class="card"><span>Lunettes</span><strong>Montures légèrement structurées</strong></article>
+            <article class="card"><span>Bijoux</span><strong>Formes arrondies ou graphiques selon ton style</strong></article>
+          </div>
+        </section>
+
+        <section class="app-view is-hidden" data-view-panel="silhouette">
+          <p class="eyebrow">MORPHOLOGIE</p><h1>Ma silhouette</h1>
+          <div class="card recommendation-list"><h2>Mes recommandations</h2><ul><li>Structurer la taille sans la comprimer.</li><li>Créer des lignes verticales pour allonger visuellement la silhouette.</li><li>Privilégier les longueurs qui équilibrent le haut et le bas du corps.</li><li>Choisir les matières selon le tombé plutôt que selon la tendance.</li></ul></div>
+        </section>
+
+        <section class="app-view is-hidden" data-view-panel="style">
+          <p class="eyebrow">IDENTITÉ VESTIMENTAIRE</p><h1>Mon style</h1>
+          <div class="feature-layout">
+            <article class="card style-card"><span class="card-kicker">STYLE PRINCIPAL</span><h2>Classique</h2><p>Des lignes nettes, des pièces durables et une élégance maîtrisée.</p></article>
+            <article class="card style-card"><span class="card-kicker">STYLE SECONDAIRE</span><h2>Flamboyant</h2><p>Une touche de caractère, de contraste et de présence dans les accessoires ou les pièces fortes.</p></article>
+          </div>
+        </section>
+
+        <section class="app-view is-hidden" data-view-panel="shopping">
+          <p class="eyebrow">MES PRIORITÉS</p><h1>Ma liste shopping</h1>
+          <div id="shoppingList" class="shopping-list"></div>
+          <form id="shoppingForm" class="shopping-form">
+            <input id="shoppingInput" type="text" placeholder="Ajouter une pièce..." aria-label="Ajouter une pièce">
+            <button class="primary-button" type="submit">Ajouter</button>
+          </form>
+        </section>
+
+        <section class="app-view is-hidden" data-view-panel="booklet">
+          <p class="eyebrow">MON LIVRET PERSONNALISÉ</p><h1>Mon livret LAYINA</h1>
+          <article class="card booklet-card">
+            <div><span class="card-kicker">VERSION NUMÉRIQUE</span><h2>Transformation complète</h2><p>Ton livret regroupera tes résultats, recommandations et conseils personnalisés.</p></div>
+            <button class="secondary-button" type="button" disabled>Livret en préparation</button>
+          </article>
+        </section>
+
+        <section class="app-view is-hidden" data-view-panel="wedding">
+          <p class="eyebrow">SPÉCIAL MARIAGE</p><h1>Mon espace mariage</h1>
+          <article class="card locked-card"><span>✦</span><h2>Espace activé pour les accompagnements Mariée & Marié</h2><p>Suivi robe ou costume, accessoires, beauté, rendez-vous et préparation du Jour J seront réunis ici.</p></article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
