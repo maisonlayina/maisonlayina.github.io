@@ -24,3 +24,10 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 /* Forfaits : masquer les valeurs de base et les économies */
 .packages-grid .package>.package-kicker:has(s),.packages-grid .package>h3+.package-kicker{display:none!important}
 .men-packages .men-package:first-child>.value,.men-packages .men-package:first-child>.saving{display:none!important}
+
+/* Mariage : retirer les pictogrammes des prestations à la carte uniquement */
+.wedding-service-block .wedding-card .wedding-icon{display:none!important}
+.wedding-service-block .wedding-card summary{grid-template-columns:1fr 34px!important;gap:12px!important}
+.wedding-service-block .wedding-card>p{padding-left:22px!important}
+.wedding-service-block .wedding-wide summary{grid-template-columns:1fr 34px!important}
+@media(max-width:700px){.wedding-service-block .wedding-card summary{grid-template-columns:1fr 30px!important}.wedding-service-block .wedding-card>p{padding-left:18px!important}}
