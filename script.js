@@ -249,7 +249,7 @@ if(location.pathname.includes('mariage')){
     if(title&&price&&title.textContent.trim()==='Colorimétrie spéciale mariée')price.textContent='129 €';
   });
   const bridePackagePrices={
-    'Essentiel Mariée':'350 €',
+    'Essentiel Mariée':'277 €',
     'Élégance Mariée':'750 €',
     'Expérience Mariée':'1 290 €'
   };
