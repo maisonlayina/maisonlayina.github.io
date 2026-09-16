@@ -180,7 +180,7 @@ function addDirectBookingLinks(){
   });
 }
 
-/* Formules Renaissance : shopping express, sans coiffure ni déjeuner */
+/* Formules Renaissance : achats express, sans coiffure ni déjeuner */
 if(location.pathname.includes('prestations')){
   addServiceImages();
   document.querySelectorAll('.package').forEach(pkg=>{
@@ -192,7 +192,7 @@ if(location.pathname.includes('prestations')){
     if(packageName==='Renaissance'){
       firstList.querySelectorAll('li').forEach(li=>{
         const text=li.textContent.trim();
-        if(text==='Accompagnement achats — 1 h')li.textContent='Accompagnement shopping express — 1 h';
+        if(text==='Accompagnement achats — 1 h')li.textContent='Accompagnement achats express — 1 h';
         if(text==='Accompagnement coiffeur'||text==='Pause déjeuner')li.remove();
       });
       const inclusions=pkg.querySelector('.package-inclusions');
@@ -212,13 +212,13 @@ document.querySelectorAll('.men-package').forEach(pkg=>{
   if(!name||name.textContent.trim()!=='Renaissance')return;
   pkg.querySelectorAll('li').forEach(li=>{
     const text=li.textContent.trim();
-    if(text==='Accompagnement achats — 1 h')li.textContent='Accompagnement shopping express — 1 h';
+    if(text==='Accompagnement achats — 1 h')li.textContent='Accompagnement achats express — 1 h';
     if(text==='Accompagnement coiffeur'||text==='Pause déjeuner')li.remove();
   });
   const inclusions=pkg.querySelector('.men-inclusions');
   if(inclusions)inclusions.remove();
   const value=pkg.querySelector('.value');
-  if(value&&/coiffure|déjeuner/i.test(value.textContent))value.textContent='Accompagnement personnalisé avec shopping express';
+  if(value&&/coiffure|déjeuner/i.test(value.textContent))value.textContent='Accompagnement personnalisé avec achats express';
 });
 
 addDirectBookingLinks();
