@@ -180,47 +180,7 @@ function addDirectBookingLinks(){
   });
 }
 
-/* Formules Renaissance : achats express, sans coiffure ni déjeuner */
-if(location.pathname.includes('prestations')){
-  addServiceImages();
-  document.querySelectorAll('.package').forEach(pkg=>{
-    const name=pkg.querySelector('.package-name');
-    if(!name)return;
-    const packageName=name.textContent.trim();
-    const firstList=pkg.querySelector('ul');
-    if(!firstList)return;
-    if(packageName==='Renaissance'){
-      firstList.querySelectorAll('li').forEach(li=>{
-        const text=li.textContent.trim();
-        if(text==='Accompagnement achats — 1 h')li.textContent='Accompagnement achats express — 1 h';
-        if(text==='Accompagnement coiffeur'||text==='Pause déjeuner')li.remove();
-      });
-      const inclusions=pkg.querySelector('.package-inclusions');
-      if(inclusions)inclusions.remove();
-    }
-    if(packageName==='Transformation complète'){
-      const texts=[...firstList.querySelectorAll('li')].map(li=>li.textContent.trim());
-      if(!texts.includes('Accompagnement coiffeur')){const li=document.createElement('li');li.textContent='Accompagnement coiffeur';firstList.appendChild(li);}
-      if(!texts.includes('Pause déjeuner')){const li=document.createElement('li');li.textContent='Pause déjeuner';firstList.appendChild(li);}
-    }
-  });
-}
-
-/* Même ajustement pour la formule Renaissance Homme */
-document.querySelectorAll('.men-package').forEach(pkg=>{
-  const name=pkg.querySelector('h3');
-  if(!name||name.textContent.trim()!=='Renaissance')return;
-  pkg.querySelectorAll('li').forEach(li=>{
-    const text=li.textContent.trim();
-    if(text==='Accompagnement achats — 1 h')li.textContent='Accompagnement achats express — 1 h';
-    if(text==='Accompagnement coiffeur'||text==='Pause déjeuner')li.remove();
-  });
-  const inclusions=pkg.querySelector('.men-inclusions');
-  if(inclusions)inclusions.remove();
-  const value=pkg.querySelector('.value');
-  if(value&&/coiffure|déjeuner/i.test(value.textContent))value.textContent='Accompagnement personnalisé avec achats express';
-});
-
+if(location.pathname.includes('prestations'))addServiceImages();
 addDirectBookingLinks();
 
 /* Hero Mariage */
@@ -239,57 +199,6 @@ if(document.querySelector('.wedding-hero')){
   const weddingMobileStyle=document.createElement('style');
   weddingMobileStyle.textContent=`@media(max-width:700px){.wedding-hero{background-image:linear-gradient(180deg,rgba(30,21,16,.42),rgba(30,21,16,.56)),url('assets/mariage-plage.jpeg?v=20260914-full-mobile')!important;background-size:100% 100%,contain!important;background-repeat:no-repeat,no-repeat!important;background-position:center,center top!important;background-color:#2f261f!important}}`;
   document.head.appendChild(weddingMobileStyle);
-}
-
-/* Tarifs Spécial Mariée */
-if(location.pathname.includes('mariage')){
-  document.querySelectorAll('#mariee .wedding-card').forEach(card=>{
-    const title=card.querySelector('.wedding-card-text strong');
-    const price=card.querySelector('.wedding-card-text small');
-    if(title&&price&&title.textContent.trim()==='Colorimétrie spéciale mariée')price.textContent='79 €';
-  });
-  const bridePackagePrices={
-    'Essentiel Mariée':'397 €',
-    'Élégance Mariée':'750 €',
-    'Expérience Mariée':'1 290 €'
-  };
-  document.querySelectorAll('.wedding-package').forEach(pkg=>{
-    const title=pkg.querySelector('h3');
-    const price=pkg.querySelector('.wedding-price');
-    if(!title||!price)return;
-    const packageName=title.textContent.trim();
-    const newPrice=bridePackagePrices[packageName];
-    if(newPrice)price.textContent=newPrice;
-    if(packageName==='Essentiel Mariée'){
-      const list=pkg.querySelector('ul');
-      if(list&&!Array.from(list.querySelectorAll('li')).some(li=>li.textContent.trim()==='Maquillage mariée — Jour J')){
-        const li=document.createElement('li');
-        li.textContent='Maquillage mariée — Jour J';
-        list.appendChild(li);
-      }
-    }
-  });
-}
-
-/* Tarifs Spécial Marié */
-if(location.pathname.includes('mariage')){
-  document.querySelectorAll('#marie .wedding-card').forEach(card=>{
-    const title=card.querySelector('.wedding-card-text strong');
-    const price=card.querySelector('.wedding-card-text small');
-    if(title&&price&&title.textContent.trim()==='Colorimétrie spéciale marié')price.textContent='79 €';
-  });
-  const groomPackagePrices={
-    'Essentiel Marié':'350 €',
-    'Élégance Marié':'490 €',
-    'Expérience Marié':'690 €'
-  };
-  document.querySelectorAll('.wedding-package').forEach(pkg=>{
-    const title=pkg.querySelector('h3');
-    const price=pkg.querySelector('.wedding-price');
-    if(!title||!price)return;
-    const newPrice=groomPackagePrices[title.textContent.trim()];
-    if(newPrice)price.textContent=newPrice;
-  });
 }
 
 const y=document.getElementById('year');
