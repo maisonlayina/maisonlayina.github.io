@@ -31,3 +31,19 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 .wedding-service-block .wedding-card>p{padding-left:22px!important}
 .wedding-service-block .wedding-wide summary{grid-template-columns:1fr 34px!important}
 @media(max-width:700px){.wedding-service-block .wedding-card summary{grid-template-columns:1fr 30px!important}.wedding-service-block .wedding-card>p{padding-left:18px!important}}
+
+/* Mobile : conserver exactement le doré foncé des boutons ordinateur */
+@media(max-width:900px){
+  .packages-grid .package a,
+  .packages-grid .package a:link,
+  .packages-grid .package a:visited,
+  .packages-grid .package a:hover,
+  .packages-grid .package a:active,
+  .packages-grid .package a:focus{
+    background:#a57c3c!important;
+    border-color:#a57c3c!important;
+    color:#fff!important;
+    -webkit-text-fill-color:#fff!important;
+    box-shadow:none!important;
+  }
+}
