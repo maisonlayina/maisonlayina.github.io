@@ -246,10 +246,10 @@ if(location.pathname.includes('mariage')){
   document.querySelectorAll('#mariee .wedding-card').forEach(card=>{
     const title=card.querySelector('.wedding-card-text strong');
     const price=card.querySelector('.wedding-card-text small');
-    if(title&&price&&title.textContent.trim()==='Colorimétrie spéciale mariée')price.textContent='129 €';
+    if(title&&price&&title.textContent.trim()==='Colorimétrie spéciale mariée')price.textContent='79 €';
   });
   const bridePackagePrices={
-    'Essentiel Mariée':'277 €',
+    'Essentiel Mariée':'397 €',
     'Élégance Mariée':'750 €',
     'Expérience Mariée':'1 290 €'
   };
@@ -257,8 +257,17 @@ if(location.pathname.includes('mariage')){
     const title=pkg.querySelector('h3');
     const price=pkg.querySelector('.wedding-price');
     if(!title||!price)return;
-    const newPrice=bridePackagePrices[title.textContent.trim()];
+    const packageName=title.textContent.trim();
+    const newPrice=bridePackagePrices[packageName];
     if(newPrice)price.textContent=newPrice;
+    if(packageName==='Essentiel Mariée'){
+      const list=pkg.querySelector('ul');
+      if(list&&!Array.from(list.querySelectorAll('li')).some(li=>li.textContent.trim()==='Maquillage mariée — Jour J')){
+        const li=document.createElement('li');
+        li.textContent='Maquillage mariée — Jour J';
+        list.appendChild(li);
+      }
+    }
   });
 }
 
@@ -267,7 +276,7 @@ if(location.pathname.includes('mariage')){
   document.querySelectorAll('#marie .wedding-card').forEach(card=>{
     const title=card.querySelector('.wedding-card-text strong');
     const price=card.querySelector('.wedding-card-text small');
-    if(title&&price&&title.textContent.trim()==='Colorimétrie spéciale marié')price.textContent='129 €';
+    if(title&&price&&title.textContent.trim()==='Colorimétrie spéciale marié')price.textContent='79 €';
   });
   const groomPackagePrices={
     'Essentiel Marié':'350 €',
