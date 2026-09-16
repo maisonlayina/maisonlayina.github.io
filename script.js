@@ -180,18 +180,47 @@ function addDirectBookingLinks(){
   });
 }
 
+/* Formules Renaissance : shopping express, sans coiffure ni déjeuner */
 if(location.pathname.includes('prestations')){
   addServiceImages();
   document.querySelectorAll('.package').forEach(pkg=>{
     const name=pkg.querySelector('.package-name');
-    if(!name||!['Renaissance','Transformation complète'].includes(name.textContent.trim()))return;
+    if(!name)return;
+    const packageName=name.textContent.trim();
     const firstList=pkg.querySelector('ul');
     if(!firstList)return;
-    const texts=[...firstList.querySelectorAll('li')].map(li=>li.textContent.trim());
-    if(!texts.includes('Accompagnement coiffeur')){const li=document.createElement('li');li.textContent='Accompagnement coiffeur';firstList.appendChild(li);}
-    if(!texts.includes('Pause déjeuner')){const li=document.createElement('li');li.textContent='Pause déjeuner';firstList.appendChild(li);}
+    if(packageName==='Renaissance'){
+      firstList.querySelectorAll('li').forEach(li=>{
+        const text=li.textContent.trim();
+        if(text==='Accompagnement achats — 1 h')li.textContent='Accompagnement shopping express — 1 h';
+        if(text==='Accompagnement coiffeur'||text==='Pause déjeuner')li.remove();
+      });
+      const inclusions=pkg.querySelector('.package-inclusions');
+      if(inclusions)inclusions.remove();
+    }
+    if(packageName==='Transformation complète'){
+      const texts=[...firstList.querySelectorAll('li')].map(li=>li.textContent.trim());
+      if(!texts.includes('Accompagnement coiffeur')){const li=document.createElement('li');li.textContent='Accompagnement coiffeur';firstList.appendChild(li);}
+      if(!texts.includes('Pause déjeuner')){const li=document.createElement('li');li.textContent='Pause déjeuner';firstList.appendChild(li);}
+    }
   });
 }
+
+/* Même ajustement pour la formule Renaissance Homme */
+document.querySelectorAll('.men-package').forEach(pkg=>{
+  const name=pkg.querySelector('h3');
+  if(!name||name.textContent.trim()!=='Renaissance')return;
+  pkg.querySelectorAll('li').forEach(li=>{
+    const text=li.textContent.trim();
+    if(text==='Accompagnement achats — 1 h')li.textContent='Accompagnement shopping express — 1 h';
+    if(text==='Accompagnement coiffeur'||text==='Pause déjeuner')li.remove();
+  });
+  const inclusions=pkg.querySelector('.men-inclusions');
+  if(inclusions)inclusions.remove();
+  const value=pkg.querySelector('.value');
+  if(value&&/coiffure|déjeuner/i.test(value.textContent))value.textContent='Accompagnement personnalisé avec shopping express';
+});
+
 addDirectBookingLinks();
 
 /* Hero Mariage */
